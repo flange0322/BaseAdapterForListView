@@ -48,15 +48,17 @@ public class MyAdapter extends BaseAdapter {
             viewHolder.mTextView_Address = (TextView) convertView.findViewById(R.id.tv_Address);
             viewHolder.layout = (LinearLayout) convertView.findViewById(R.id.layout_Linear);
             convertView.setTag(viewHolder);
-
-            if(data[position][0].equals("1")){
-                viewHolder.mTextView_Name.setText("★");
-            }
         }
         else
             viewHolder = (ViewHolder)convertView.getTag();
 
-            viewHolder.mTextView_Address.setText(data[position][1]);
+        if(data[position][0].equals("1")){
+            viewHolder.mTextView_Name.setText("★");
+        }
+        else{
+            viewHolder.mTextView_Name.setText("");
+        }
+        viewHolder.mTextView_Address.setText(data[position][1]);
 
         return convertView;
     }
